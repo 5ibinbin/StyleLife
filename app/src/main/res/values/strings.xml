@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Star</string>
+    <string name="share_to">分享至…</string>
+    <!--Login-->
+    <string name="login">登录</string>
+    <string name="account">手机号</string>
+    <string name="pwd">密码</string>
+    <string name="forgetPwd">忘记密码</string>
+    <string name="register">没有账号?去注册吧</string>
+    <string name="social_login">社交账号登录</string>
+
+    <string name="startNewLife">开启全新的一天</string>
+
+    <string name="register_title">注册账号</string>
+    <string name="register_phone">请输入手机号</string>
+    <string name="register_code">请输入验证码</string>
+    <string name="register_getCode">获取验证码</string>
+    <string name="register_register">注册</string>
+    <string name="register_account">已有账号?</string>
+    <string name="register_login">立即登录</string>
+    <string name="register_null_phone">手机号为空</string>
+    <string name="register_ill_phone">手机号不合法</string>
+    <string name="register_ill_code">手机号不合法</string>
+</resources>
