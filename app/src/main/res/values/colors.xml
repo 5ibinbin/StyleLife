@@ -4,13 +4,12 @@
     <color name="colorPrimaryDark">#20b2aa</color>
     <color name="colorAccent">#c0c0c0</color>
 
-    <color name="colorgreen">#20b2aa</color>
-
+    <color name="colorgreen">#008B8B</color>
     <color name="colorWhite">#ffffff</color>
     <color name="yellow">#ffff00</color><!--黄色 -->
     <color name="deeppink">#ff1493</color><!--深粉红色 -->
     <color name="fuchsia">#ff00ff</color><!--紫红色 -->
-    <color name="gray">#c0c0c0</color><!--银色 -->
+    <color name="gray">#8A8A8A</color><!--银色 -->
     <color name="darkkhaki">#bdb76b</color><!--暗黄褐色 -->
     <color name="darkviolet">#9400d3</color><!--暗紫罗兰色 -->
     <color name="olive">#808000</color><!--橄榄色 -->

@@ -25,6 +25,14 @@ public class LoginPresenterImpl implements ILoginPersenter {
 
     @Override
     public void login(String username, String psw) {
+        if (username.isEmpty()){
+            mILoginCallBack.setUsernameError();
+            return;
+        }
+        if (psw.isEmpty()){
+            mILoginCallBack.setPasswordError();
+            return;
+        }
         RestClient.getInstance().login(username, psw, new Subscriber<LoginResult>() {
             @Override
             public void onCompleted() {
@@ -36,6 +44,7 @@ public class LoginPresenterImpl implements ILoginPersenter {
             public void onError(Throwable e) {
                 LogUtils.e(GsonUtils.toJson(e));
                 mILoginCallBack.setPasswordError();
+                mILoginCallBack.hideProgress();
             }
 
             @Override

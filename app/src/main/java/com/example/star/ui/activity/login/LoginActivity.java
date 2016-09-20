@@ -13,8 +13,9 @@ import com.example.star.constant.StrConstant;
 import com.example.star.ui.activity.MainActivity;
 import com.example.star.ui.activity.login.presenter.LoginPresenterImpl;
 import com.example.star.ui.activity.login.view.ILoginCallBack;
+import com.example.star.ui.activity.register.RegisterActivity;
 import com.example.star.ui.base.BaseActivity;
-import com.example.star.view.reder.LoadingView;
+import com.example.star.view.loading.PopUpLoading;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -31,13 +32,13 @@ public class LoginActivity extends BaseActivity implements ILoginCallBack {
     @Bind(R.id.username) EditText edtUserName;
     @Bind(R.id.password) EditText edtPassword;
     @Bind(R.id.register) TextView txtRegister;
-    @Bind(R.id.level_view)
-    LoadingView mLoadingView;
 
     private String userName;
     private String passWord;
 
     private SharedPreferences mSharedPreferences = null;
+
+    private PopUpLoading mPopUpLoading = null;
 
     @Override
     protected int getContentViewLayoutId() {
@@ -51,17 +52,17 @@ public class LoginActivity extends BaseActivity implements ILoginCallBack {
 
     @Override
     protected void initViewsAndEvents() {
-
+        mPopUpLoading = new PopUpLoading(this);
     }
 
     @OnClick({R.id.login, R.id.register})
     public void clickListener(View view) {
         switch (view.getId()) {
             case R.id.register:
-                showProgress();
-//                readyGo(RegisterActivity.class);
+                readyGoThenKill(RegisterActivity.class);
                 break;
             case R.id.login:
+                showProgress();
                 userName = edtUserName.getText().toString();
                 passWord = edtPassword.getText().toString();
                 new LoginPresenterImpl(this).login(userName, passWord);
@@ -70,35 +71,29 @@ public class LoginActivity extends BaseActivity implements ILoginCallBack {
     }
 
     @Override
-    protected void getLoadingTargetView() {
-
-    }
-
-    @Override
     public void showProgress() {
-        mLoadingView.setVisibility(View.VISIBLE);
+        mPopUpLoading.show();
     }
 
     @Override
     public void hideProgress() {
-        mLoadingView.setVisibility(View.GONE);
+        mPopUpLoading.dismiss();
     }
 
     @Override
     public void setUsernameError() {
-
+        Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void setPasswordError() {
-        Toast.makeText(this, "账号或密码错误", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void readyGoHome() {
         readyGoThenKill(MainActivity.class);
     }
-
     @Override
     public void storageUserInfo(String token) {
         mSharedPreferences = this.getSharedPreferences(StrConstant.USERNAME_NAME, MODE_PRIVATE);

@@ -27,8 +27,8 @@
         <com.example.star.view.CircleImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_margin="50px"
-            android:src="@drawable/start_i1"/>
+            android:layout_margin="60px"
+            android:src="@drawable/login_logo_netease_prs"/>
         <EditText
             android:id="@+id/editPhone"
             android:layout_width="match_parent"
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="25dp">
             <EditText
                 android:id="@+id/editCode"
                 android:layout_width="0dp"
@@ -74,7 +74,7 @@
             android:text="@string/register_register"
             android:textSize="@dimen/big"
             android:textColor="@color/colorgreen"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="44dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/btnregistercircle"/>
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:background="@color/colorgreen"
-        android:paddingBottom="20dp">
+        android:paddingBottom="25dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

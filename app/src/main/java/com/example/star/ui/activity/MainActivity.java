@@ -21,9 +21,4 @@ public class MainActivity extends BaseActivity {
     protected void initViewsAndEvents() {
 
     }
-
-    @Override
-    protected void getLoadingTargetView() {
-
-    }
 }

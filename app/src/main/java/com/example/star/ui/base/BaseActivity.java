@@ -51,10 +51,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         * */
         initViewsAndEvents();
         /*
-        * set Loading
-        * */
-        getLoadingTargetView();
-        /*
         * set status
         * */
         setStatusBar();
@@ -97,10 +93,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     * initialize view and add event
     * */
     protected abstract void initViewsAndEvents();
-    /*
-    * loading view
-    * */
-    protected abstract void getLoadingTargetView();
     /*
     * start Activity
     * */

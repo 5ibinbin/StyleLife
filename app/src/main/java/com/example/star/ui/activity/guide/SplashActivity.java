@@ -49,12 +49,6 @@ public class SplashActivity extends BaseActivity{
     protected void initViewsAndEvents() {
         init();
     }
-
-    @Override
-    protected void getLoadingTargetView() {
-
-    }
-
     private void init() {
 
         SharedPreferences preferences = getSharedPreferences(

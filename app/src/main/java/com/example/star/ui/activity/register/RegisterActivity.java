@@ -12,9 +12,9 @@ import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.RequestMobileCodeCallback;
+import com.avos.avoscloud.SaveCallback;
 import com.example.star.R;
 import com.example.star.constant.IntConstant;
-import com.example.star.ui.activity.MainActivity;
 import com.example.star.ui.activity.login.LoginActivity;
 import com.example.star.ui.base.BaseActivity;
 import com.example.star.utils.json.GsonUtils;
@@ -39,9 +39,9 @@ public class RegisterActivity extends BaseActivity{
     @Bind(R.id.registerMain) Button mBtnRegister;
 
     private TimeCountUtils mTimeCountUtils;
-    private String phoneNum;
-    private String codeNum;
-    private String telRegex;
+    private String phoneNum = "";
+    private String codeNum = "";
+    private String telRegex = "";
 
     @Override
     protected int getContentViewLayoutId() {
@@ -57,12 +57,6 @@ public class RegisterActivity extends BaseActivity{
     protected void initViewsAndEvents() {
         init();
     }
-
-    @Override
-    protected void getLoadingTargetView() {
-
-    }
-
     private void init() {
         telRegex = "[1][3578]\\d{9}";
     }
@@ -82,25 +76,6 @@ public class RegisterActivity extends BaseActivity{
         }
     }
 
-    private void getPwd(){
-        codeNum = mEditCode.getText().toString();
-        if (codeNum.isEmpty()){
-            Toast.makeText(this, R.string.register_ill_code, Toast.LENGTH_SHORT).show();
-            return;
-        }
-        AVUser.signUpOrLoginByMobilePhoneInBackground(phoneNum, codeNum, new LogInCallback<AVUser>() {
-            @Override
-            public void done(AVUser avUser, AVException e) {
-                avUser.setPassword(codeNum+"");
-                if (e == null){
-                    readyGoThenKill(MainActivity.class);
-                    LogUtils.i(GsonUtils.toJson(e));
-                    LogUtils.i(codeNum);
-                }
-            }
-        });
-    }
-
     private void getCode() {
         phoneNum = mEditPhone.getText().toString();
         if (phoneNum.isEmpty()){
@@ -110,7 +85,6 @@ public class RegisterActivity extends BaseActivity{
             Toast.makeText(this, R.string.register_ill_phone, Toast.LENGTH_SHORT).show();
             return;
         }else {
-
             AVOSCloud.requestSMSCodeInBackground(phoneNum, new RequestMobileCodeCallback() {
                 @Override
                 public void done(AVException e) {
@@ -122,5 +96,36 @@ public class RegisterActivity extends BaseActivity{
                 }
             });
         }
+    }
+    private void getPwd(){
+        codeNum = mEditCode.getText().toString();
+        if (phoneNum.isEmpty()){
+            Toast.makeText(this, R.string.register_null_phone, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (codeNum.isEmpty()){
+            Toast.makeText(this, R.string.register_ill_code, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        AVUser.signUpOrLoginByMobilePhoneInBackground(phoneNum, codeNum, new LogInCallback<AVUser>() {
+            @Override
+            public void done(AVUser avUser, AVException e) {
+                if (e == null){
+                    LogUtils.i(GsonUtils.toJson(e));
+                    avUser.setPassword(codeNum.toString());
+                    avUser.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(AVException e) {
+                            if (e == null){
+                                LogUtils.d(GsonUtils.toJson(e));
+                            }else {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                    readyGoThenKill(LoginActivity.class);
+                }
+            }
+        });
     }
 }

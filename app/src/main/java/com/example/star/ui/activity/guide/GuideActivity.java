@@ -64,12 +64,6 @@ public class GuideActivity extends BaseActivity implements ViewPager.OnPageChang
         initViews();
         initDots();
     }
-
-    @Override
-    protected void getLoadingTargetView() {
-
-    }
-
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 

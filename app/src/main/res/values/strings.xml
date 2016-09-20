@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Star</string>
+    <string name="app_name">易生活</string>
     <string name="share_to">分享至…</string>
     <!--Login-->
     <string name="login">登录</string>
