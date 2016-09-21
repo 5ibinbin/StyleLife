@@ -11,9 +11,9 @@ public class LoginResult {
     private String sessionToken;
     private String objectId;
     private String username;
+    private String createdAt;
+    private String updatedAt;
     private String mobilePhoneNumber;
-    private String createAt;
-    private String updateAt;
     private boolean emailVerified;
     private boolean mobilePhoneVerified;
 
@@ -49,20 +49,20 @@ public class LoginResult {
         this.mobilePhoneNumber = mobilePhoneNumber;
     }
 
-    public String getCreateAt() {
-        return createAt;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(String createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public String getUpdateAt() {
-        return updateAt;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(String updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public boolean isEmailVerified() {
@@ -80,4 +80,5 @@ public class LoginResult {
     public void setMobilePhoneVerified(boolean mobilePhoneVerified) {
         this.mobilePhoneVerified = mobilePhoneVerified;
     }
+
 }

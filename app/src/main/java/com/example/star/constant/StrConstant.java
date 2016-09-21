@@ -19,7 +19,11 @@ public class StrConstant {
     /*
     * 存储用户信息的表名
     * */
-    public static final String USERNAME_NAME = "user_info";
+    public static final String USERINFO_NAME = "user_status";
+    /*
+    * 存储用户信息
+    * */
+    public static final String USERINFO = "user_info";
     /*
     * 存储用户的Token
     * */

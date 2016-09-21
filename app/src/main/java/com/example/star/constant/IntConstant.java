@@ -12,9 +12,13 @@ public class IntConstant {
     * */
     public static final int GO_GUIDE = 10000;
     /*
+    * 进入登录界面
+    * */
+    public static final int GO_LOGIN = 10001;
+    /*
     * 进入主界面
     * */
-    public static final int GO_MAIN = 10001;
+    public static final int GO_MAIN = 10002;
     /*
     * 进入时间延迟
     * */

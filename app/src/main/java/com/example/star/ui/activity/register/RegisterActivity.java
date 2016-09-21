@@ -1,5 +1,6 @@
 package com.example.star.ui.activity.register;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class RegisterActivity extends BaseActivity{
     @Bind(R.id.editCode) EditText mEditCode;
     @Bind(R.id.registerMain) Button mBtnRegister;
 
+    private SharedPreferences mSharedPreferences = null;
     private TimeCountUtils mTimeCountUtils;
     private String phoneNum = "";
     private String codeNum = "";

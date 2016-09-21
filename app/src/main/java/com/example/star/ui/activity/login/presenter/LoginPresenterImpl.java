@@ -43,15 +43,14 @@ public class LoginPresenterImpl implements ILoginPersenter {
             @Override
             public void onError(Throwable e) {
                 LogUtils.e(GsonUtils.toJson(e));
-                mILoginCallBack.setPasswordError();
                 mILoginCallBack.hideProgress();
             }
 
             @Override
             public void onNext(LoginResult loginResult) {
                 mILoginCallBack.showProgress();
-                mILoginCallBack.storageUserInfo(loginResult.getSessionToken());
-                LogUtils.i(GsonUtils.toJson(loginResult));
+                mILoginCallBack.storageUserInfo(loginResult);
+                LogUtils.d(GsonUtils.toJson(loginResult));
             }
         });
     }

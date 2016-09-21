@@ -10,11 +10,14 @@ import android.widget.Toast;
 
 import com.example.star.R;
 import com.example.star.constant.StrConstant;
+import com.example.star.model.entity.LoginResult;
 import com.example.star.ui.activity.MainActivity;
 import com.example.star.ui.activity.login.presenter.LoginPresenterImpl;
 import com.example.star.ui.activity.login.view.ILoginCallBack;
 import com.example.star.ui.activity.register.RegisterActivity;
 import com.example.star.ui.base.BaseActivity;
+import com.example.star.utils.json.GsonUtils;
+import com.example.star.utils.log.LogUtils;
 import com.example.star.view.loading.PopUpLoading;
 
 import butterknife.Bind;
@@ -95,9 +98,12 @@ public class LoginActivity extends BaseActivity implements ILoginCallBack {
         readyGoThenKill(MainActivity.class);
     }
     @Override
-    public void storageUserInfo(String token) {
-        mSharedPreferences = this.getSharedPreferences(StrConstant.USERNAME_NAME, MODE_PRIVATE);
+    public void storageUserInfo(LoginResult loginResult) {
+        LogUtils.d(GsonUtils.toJson(loginResult));
+        mSharedPreferences = this.getSharedPreferences(StrConstant.USERINFO_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = mSharedPreferences.edit();
-        editor.putString(StrConstant.USERINFO_TOKEN, token);
+        editor.putString(StrConstant.USERINFO, GsonUtils.toJson(loginResult))
+              .putString(StrConstant.USERINFO_TOKEN, GsonUtils.fromJson(GsonUtils.toJson(loginResult), LoginResult.class).getSessionToken());
+        editor.commit();
     }
 }

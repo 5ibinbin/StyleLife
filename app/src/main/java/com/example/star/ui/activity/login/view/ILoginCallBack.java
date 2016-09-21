@@ -1,5 +1,7 @@
 package com.example.star.ui.activity.login.view;
 
+import com.example.star.model.entity.LoginResult;
+
 /**
  * Created by：Cral-Gates on 16/9/13 22:56
  * EMail：zhangxia2013105@gmail.com
@@ -18,5 +20,5 @@ public interface ILoginCallBack {
 
     void readyGoHome();
 
-    void storageUserInfo(String token);
+    void storageUserInfo(LoginResult loginResult);
 }
