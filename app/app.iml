@@ -130,8 +130,8 @@
     <orderEntry type="library" exported="" name="imagepipeline-0.13.0" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-base-0.13.0" level="project" />
     <orderEntry type="library" exported="" name="rxjava-1.1.5" level="project" />
-    <orderEntry type="library" exported="" name="gson-2.7" level="project" />
     <orderEntry type="library" exported="" name="retrofit-2.1.0" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.7" level="project" />
     <orderEntry type="library" exported="" name="adapter-rxjava-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="avoscloud-sdk-v3.14.5" level="project" />
