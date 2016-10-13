@@ -11,6 +11,7 @@ import com.example.star.constant.StrConstant;
 import com.example.star.ui.activity.MainActivity;
 import com.example.star.ui.activity.login.LoginActivity;
 import com.example.star.ui.base.BaseActivity;
+import com.example.star.utils.log.LogUtils;
 
 /**
  * Created by：Cral-Gates on 16/9/10 08:29
@@ -56,6 +57,7 @@ public class SplashActivity extends BaseActivity{
     protected void initViewsAndEvents() {
         init();
     }
+
     private void init() {
         SharedPreferences preferences = getSharedPreferences(
                 StrConstant.SHAREDPREFERENCES_NAME, MODE_PRIVATE);
@@ -63,17 +65,16 @@ public class SplashActivity extends BaseActivity{
 
         isFirstIn = preferences.getBoolean(StrConstant.ISFIRSTIN, true);
         sessionToken = sharedPreferences.getString(StrConstant.USERINFO_TOKEN, "");
+        LogUtils.i(sessionToken);
         if (isFirstIn){
             mHandler.sendEmptyMessageDelayed(IntConstant.GO_GUIDE, IntConstant.SPLASH_DELAY_MILLIS);
         } else {
-            if (isCheckSessionToken == sessionToken){
+            if (!sessionToken.isEmpty()){
                 mHandler.sendEmptyMessageDelayed(IntConstant.GO_MAIN, IntConstant.SPLASH_DELAY_MILLIS);
             }else {
                 mHandler.sendEmptyMessageDelayed(IntConstant.GO_LOGIN, IntConstant.SPLASH_DELAY_MILLIS);
-                isCheckSessionToken = sessionToken;
             }
         }
     }
-
 }
 
