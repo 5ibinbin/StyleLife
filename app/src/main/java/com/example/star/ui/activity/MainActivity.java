@@ -25,6 +25,6 @@ public class MainActivity extends BaseActivity {
     protected void initViewsAndEvents() {
         mSharedPreferences = this.getSharedPreferences(StrConstant.USERINFO_NAME, MODE_PRIVATE);
         userToken = mSharedPreferences.getString(StrConstant.USERINFO_TOKEN, "");
-        LogUtils.d(userToken);
+        LogUtils.i(userToken);
     }
 }

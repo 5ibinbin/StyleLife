@@ -27,6 +27,8 @@ public class PopUpLoading extends CustomPopupwindow{
     public void init() {
         super.defaultSetting();
         this.setAnimationStyle(R.style.NoAnimation);
+        this.setWidth(80);
+        this.setHeight(80);
         LayoutInflater inflater = LayoutInflater.from(mActivity);
         contentView = inflater.inflate(R.layout.loading, null);
         setContentView(contentView);

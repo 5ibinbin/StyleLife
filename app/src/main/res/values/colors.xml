@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#20b2aa</color>
     <color name="colorAccent">#c0c0c0</color>
+    <color name="colorblue">#1e90ff</color>
 
     <color name="colorgreen">#008B8B</color>
     <color name="colorWhite">#ffffff</color>
@@ -15,8 +16,9 @@
     <color name="olive">#808000</color><!--橄榄色 -->
     <color name="purple">#800080</color><!--紫色 -->
     <color name="lawngreen">#7cfc00</color><!--草绿色 -->
-    <color name="dodgerblue">#1e90ff</color><!--闪兰色 -->
+
     <color name="cyan">#00ffff</color><!--青色 -->
     <color name="mediumblue">#0000cd</color><!--中兰色 -->
     <color name="black">#000000</color><!--黑色 -->
+
 </resources>

@@ -21,11 +21,19 @@ public class StrConstant {
     * */
     public static final String USERINFO_NAME = "user_status";
     /*
-    * 存储用户信息
+    * 存储用户名
     * */
-    public static final String USERINFO = "user_info";
+    public static final String USERINFO_USERNAME = "user_username";
     /*
     * 存储用户的Token
     * */
     public static final String USERINFO_TOKEN = "user_token";
+    /*
+    * 存储用户的ID
+    * */
+    public static final String USERINFO_OBJID = "user_id";
+    /*
+    *
+    * */
+    public static final String USERINFO_PHONENUM = "user_phoneNum";
 }

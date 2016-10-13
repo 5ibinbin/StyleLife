@@ -6,14 +6,6 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:fitsSystemWindows="true">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:text="@string/register_title"
-        android:gravity="center"
-        android:textSize="@dimen/big"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorgreen"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -77,7 +69,7 @@
             android:layout_marginTop="44dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@drawable/btnregistercircle"/>
+            android:background="@drawable/ripple_bg"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

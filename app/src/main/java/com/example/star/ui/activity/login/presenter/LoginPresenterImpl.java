@@ -27,10 +27,12 @@ public class LoginPresenterImpl implements ILoginPersenter {
     public void login(String username, String psw) {
         if (username.isEmpty()){
             mILoginCallBack.setUsernameError();
+            mILoginCallBack.hideProgress();
             return;
         }
         if (psw.isEmpty()){
             mILoginCallBack.setPasswordError();
+            mILoginCallBack.hideProgress();
             return;
         }
         RestClient.getInstance().login(username, psw, new Subscriber<LoginResult>() {

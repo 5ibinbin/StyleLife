@@ -36,8 +36,8 @@ public class LoginActivity extends BaseActivity implements ILoginCallBack {
     @Bind(R.id.password) EditText edtPassword;
     @Bind(R.id.register) TextView txtRegister;
 
-    private String userName;
-    private String passWord;
+    private String userName = null;
+    private String passWord = null;
 
     private SharedPreferences mSharedPreferences = null;
 
@@ -85,12 +85,21 @@ public class LoginActivity extends BaseActivity implements ILoginCallBack {
 
     @Override
     public void setUsernameError() {
-        Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
+        if (userName.isEmpty()){
+            Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "用户名错误", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     public void setPasswordError() {
-        Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
+        if (passWord.isEmpty()){
+            Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "密码错误", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override
@@ -100,10 +109,13 @@ public class LoginActivity extends BaseActivity implements ILoginCallBack {
     @Override
     public void storageUserInfo(LoginResult loginResult) {
         LogUtils.d(GsonUtils.toJson(loginResult));
+        LogUtils.d(GsonUtils.toJson(loginResult.getSessionToken()));
         mSharedPreferences = this.getSharedPreferences(StrConstant.USERINFO_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = mSharedPreferences.edit();
-        editor.putString(StrConstant.USERINFO, GsonUtils.toJson(loginResult))
-              .putString(StrConstant.USERINFO_TOKEN, GsonUtils.fromJson(GsonUtils.toJson(loginResult), LoginResult.class).getSessionToken());
+        editor.putString(StrConstant.USERINFO_USERNAME, GsonUtils.toJson(loginResult.getUsername()))
+                .putString(StrConstant.USERINFO_OBJID, GsonUtils.toJson(loginResult.getObjectId()))
+                .putString(StrConstant.USERINFO_PHONENUM, GsonUtils.toJson(loginResult.getMobilePhoneNumber()))
+                .putString(StrConstant.USERINFO_TOKEN, GsonUtils.toJson(loginResult.getSessionToken()));
         editor.commit();
     }
 }
