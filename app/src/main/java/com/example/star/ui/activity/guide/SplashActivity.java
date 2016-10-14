@@ -22,7 +22,6 @@ import com.example.star.utils.log.LogUtils;
 public class SplashActivity extends BaseActivity{
 
     private boolean isFirstIn = false;
-    private String isCheckSessionToken = null;
     private String sessionToken = null;
 
     private Handler mHandler = new Handler(){

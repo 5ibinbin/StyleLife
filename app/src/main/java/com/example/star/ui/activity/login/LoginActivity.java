@@ -86,20 +86,19 @@ public class LoginActivity extends BaseActivity implements ILoginCallBack {
     @Override
     public void setUsernameError() {
         if (userName.isEmpty()){
-            Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.input_userName, Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "用户名错误", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.account_erroe, Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void setPasswordError() {
         if (passWord.isEmpty()){
-            Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.input_pwd, Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "密码错误", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.pwd_error, Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
